@@ -64,17 +64,3 @@ Implements a UART transmitter with:
 
 ---
 
-## Build & Simulation
-
-```bash
-# Synthesize the design
-yosys -p 'synth_ice40 -top top -json top.json' top.v uart_trx.v
-
-# Place & Route
-nextpnr-ice40 --hx1k --pcf constraints.pcf --json top.json --asc top.asc
-
-# Generate Bitstream
-icepack top.asc top.bin
-
-# Flash to FPGA
-iceprog top.bin
