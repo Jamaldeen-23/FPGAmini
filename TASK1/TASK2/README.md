@@ -1,27 +1,80 @@
-Introduction
-This document provides a detailed explanation of a Verilog code that implements a UART transmission module alongside a simple RGB LED control system. The code is structured to facilitate the transmission of data via UART while simultaneously controlling RGB LEDs based on the received data.
+# UART RGB LED Controller (FPGA Verilog)
 
-Key Concepts
-UART (Universal Asynchronous Receiver-Transmitter): A hardware communication protocol used for asynchronous serial communication. The code implements an 8N1 UART transmission, which means 8 data bits, no parity bit, and 1 stop bit.
-RGB LED Control: The code utilizes an RGB driver to control the color output of the LEDs based on the UART input.
-Clock Management: The internal oscillator generates a clock signal that drives the UART transmission and LED control logic.
-Code Structure
-The code is divided into two main modules:
+This project implements a UART-based RGB LED controller using Verilog for FPGA devices (Lattice ICE40).  
+It demonstrates UART transmission, internal clock generation, and RGB LED control using PWM.
 
-Top Module: This module integrates the internal oscillator, RGB LED driver, and UART transmission.
-UART Transmission Module: This module handles the logic for sending data over UART.
-Top Module
-Inputs:
-uartrx: UART receive pin.
-hw_clk: Hardware clock input.
-Outputs:
-led_red, led_blue, led_green: Outputs for RGB LEDs.
-uarttx: UART transmit pin.
-UART Transmission Module
-Inputs:
-clk: Clock signal.
-txbyte: Data byte to be transmitted.
-senddata: Trigger signal to start transmission.
-Outputs:
-txdone: Signal indicating transmission completion.
-tx: Transmit wire.
+---
+
+## Features
+- Internal High-Frequency Oscillator (HFOSC)
+- UART Transmitter (8N1 protocol) with state machine
+- RGB LED control (PWM)
+- Frequency counter (for clock division or delay)
+- Loopback UART (for testing purposes)
+
+---
+
+## File Structure
+
+
+---
+
+## Module Details
+
+### Top Module (`top.v`)
+
+| Port       | Direction | Description                 |
+|------------|-----------|-----------------------------|
+| led_red    | Output    | Red LED Control             |
+| led_green  | Output    | Green LED Control           |
+| led_blue   | Output    | Blue LED Control            |
+| uarttx     | Output    | UART TX Output              |
+| uartrx     | Input     | UART RX Input               |
+| hw_clk     | Input     | External Clock (optional)   |
+
+- Generates internal clock using `SB_HFOSC`.
+- UART transmit line (`uarttx`) connected to receive line (`uartrx`) for loopback testing.
+- RGB LED driven using `SB_RGBA_DRV` primitive.
+- Frequency counter increments on every clock edge.
+
+---
+
+### UART Transmitter (`uart_tx_8n1`)
+
+Implements a UART transmitter with:
+- 1 Start bit
+- 8 Data bits (LSB first)
+- 1 Stop bit
+
+#### State Machine:
+| State        | Description            |
+|--------------|------------------------|
+| IDLE         | Wait for send trigger  |
+| STARTTX      | Send start bit (LOW)   |
+| TXING        | Send 8 data bits       |
+| TXDONE       | Send stop bit (HIGH)   |
+
+---
+
+## Requirements
+
+- Lattice ICE40 FPGA
+- Verilog Compiler (Yosys / IceStorm Toolchain)
+- UART Terminal (for testing output)
+
+---
+
+## Build & Simulation
+
+```bash
+# Synthesize the design
+yosys -p 'synth_ice40 -top top -json top.json' top.v uart_trx.v
+
+# Place & Route
+nextpnr-ice40 --hx1k --pcf constraints.pcf --json top.json --asc top.asc
+
+# Generate Bitstream
+icepack top.asc top.bin
+
+# Flash to FPGA
+iceprog top.bin
