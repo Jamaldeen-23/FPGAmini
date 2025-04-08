@@ -17,8 +17,6 @@ This repo contains four FPGA-based projects showcasing real-time UART communicat
 
 ---
 
-## 🔹 Projects Overview
-## 🔹 FPGA Projects Overview
 
 
 
