@@ -296,7 +296,7 @@ I - II
 H - HH
 
 # Video Output
-
+https://github.com/user-attachments/assets/8e5f016e-cfcd-4358-bf49-4adeb7ff3715
 
 
 # Task 3:
@@ -452,9 +452,7 @@ If this shows an error in picocom:
 Remove and Reconnect the USB and make sure to select it again in the devices before running the terminal
 
 # Video Output
-
-https://github.com/user-attachments/assets/d3a37f0b-0511-4e0e-be31-a68e053cb7b2
-
+https://github.com/user-attachments/assets/916a5530-afeb-4171-8411-3cf8437ccc94
 
 
 
@@ -579,7 +577,7 @@ If this shows an error in picocom:
 Remove and Reconnect the USB and make sure to select it again in the devices before running the terminal
 
 # Video Output
-https://github.com/user-attachments/assets/dba22279-39f0-445d-a74d-769c01abd376
+https://github.com/user-attachments/assets/84f6012c-1b44-4cf5-b4b3-b44f7cd84481
 
 
 
@@ -1125,7 +1123,7 @@ Launches a terminal window (e.g., using screen or minicom) at 9600 baud to monit
 
 # Video Output
 
-https://github.com/user-attachments/assets/5a92950a-49de-4bc7-b689-9e6aeaa5128a
+https://github.com/user-attachments/assets/bab2124c-196f-4df1-a3b1-1c95f05f6d0b
 
 # Conclusion
 This project successfully implements a real-time sensor interface using FPGA:\
