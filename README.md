@@ -262,7 +262,8 @@ Helps debug UART transmission in an FPGA-based system.
 
 # BLOCK DIAGRAM FOR UART LOOPBACK:
 
-![image](https://github.com/user-attachments/assets/cf980151-1785-4bc1-90de-e6fa6bb724a2)
+![task1bd](https://github.com/user-attachments/assets/564a5416-d4ac-45f0-92fc-5612113d6273)
+
 
 
 # Testing and Output
