@@ -18,12 +18,6 @@ This repo contains four FPGA-based projects showcasing real-time UART communicat
 ---
 
 
-
-
-#  Setup & Installation
-
-
-
 ***
 
 
@@ -84,7 +78,7 @@ This command programs the **VSD Squadron Mini FPGA board**.
 
 ***
 # TASK 1:
-# PURPOSE OF THE MODULE:
+# EXPLANATION OF THE MODULE
 
 The purpose of the module named “top” is used to implement a FPGA RGB LED controller which uses an internal oscillator(clock) and a counter(to create a slower clock signal for testing) to set the LED to emit blue light while keeping the red and green off.
 
@@ -153,20 +147,16 @@ set_io  testwire 17     => TESTWIRE pin 17 in pin assignments        = (IOB_33b_
 
 # Build & Flash Instructions
 
-Clone the Repository
 
-    git clone https://github.com/Skandakm29/VsdSquadron_mini_fpga-.git
-
-    cd VsdSquadron_mini_fpga-
  
 Compile and Flash the FPGA
 
     make build
     make flash
 
-# Video Output
+#  Output
 
-https://github.com/user-attachments/assets/9cbd1d75-d844-45b5-a4e9-73b0fb15277a
+![TASK1](https://github.com/user-attachments/assets/aa41a161-642d-459a-8203-0d842eb2ef71)
 
 
 
@@ -272,17 +262,11 @@ Helps debug UART transmission in an FPGA-based system.
 
 # BLOCK DIAGRAM FOR UART LOOPBACK:
 
-![Image](https://github.com/user-attachments/assets/7a4f7f77-5763-4e6a-a678-f19fc70d71c3)
+![image](https://github.com/user-attachments/assets/cf980151-1785-4bc1-90de-e6fa6bb724a2)
 
-# CIRCUIT DIAGRAM FOR UART LOOPBACK
- ![Image](https://github.com/user-attachments/assets/e4b5eed7-4945-4277-99c0-d7d4b17fd960)
 
 # Testing and Output
 
-Clone & Setup Repository
-
-    git clone https://github.com/Skandakm29/VsdSquadron_mini_fpga_uart_loopback.git
-    cd "VsdSquadron_mini_fpga_uart_loopback"
 Build & Flash FPGA Bitstream
 
 Build the Bitstream
@@ -312,7 +296,7 @@ I - II
 H - HH
 
 # Video Output
-https://github.com/user-attachments/assets/20ff0efa-2ef5-41c7-890f-f246736cc795
+
 
 
 # Task 3:
@@ -434,11 +418,8 @@ Sets txdone = 1 (indicates transmission complete).
 
 Returns to STATE_IDLE.
 
-# System Architecture
 
-# Circuit diagram
 
-![Image](https://github.com/user-attachments/assets/93a868e5-8212-4010-9d19-6c88a1c4461f)
 
 
 # Block diagram
@@ -447,10 +428,7 @@ Returns to STATE_IDLE.
 
 # Programming and Synthesis
 
-Clone & Setup Repository
 
-    git clone https://github.com/Skandakm29/VsdSquadron_mini_fpga_uart_loopback.git
-    cd "VsdSquadron_mini_fpga_uart_loopback"
 Build & Flash FPGA Bitstream
 
 Build the Bitstream
@@ -574,16 +552,10 @@ Shift Register - Temporarily stores the full 32-bit sensor data. Shifts out 8-bi
 
 ![Image](https://github.com/user-attachments/assets/ac76cd3a-a78a-4627-bbe9-fc0437238db9)
 
-# Circuit Diagram
-
-![Image](https://github.com/user-attachments/assets/28d3f472-c836-48c9-820f-11b9e07931da)
 
 # Programming and Synthesis
 
-Clone & Setup Repository
 
-    git clone https://github.com/Skandakm29/VsdSquadron_mini_fpga_uart_loopback.git
-    cd "VsdSquadron_mini_fpga_uart_loopback"
 Build & Flash FPGA Bitstream
 
 Build the Bitstream
@@ -1170,7 +1142,6 @@ ASCII-based serial communication at 9600 baud
 Optional local display using RGB LEDs
 
 
-The design provides a foundation that can be expanded with additional sensor types, error correction, or enhanced UART configurations.
 
 
 
